@@ -69,9 +69,21 @@ function redirecionar() {
     //window.location.href = "https://www.hltv.org";
 }
 
-function trocar() {
-    document.getElementById("mousemove").innerHTML = "Obrigado por passar o mouse";
+function trocar(elemento) {
+    elemento.innerHTML = "Obrigado por passar o mouse";
     //alert("trocar contexto");
+}
+
+function voltar(elemento) {
+    elemento.innerHTML = "Passe o mouse aqui";
+}
+
+function load() {
+    alert("Pagina carregada");
+}
+
+function change(elemento) {
+    console.log(elemento.value);
 }
 
 var idade_entry = prompt("Qual a sua idade?");
