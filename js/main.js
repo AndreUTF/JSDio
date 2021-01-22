@@ -32,7 +32,7 @@ if (idade3 >= 18) {
 }
 */
 
-
+/*
 var count = 5;
 for (var j = 0; j < count; j++) {
     console.log(j);
@@ -88,3 +88,134 @@ function change(elemento) {
 
 var idade_entry = prompt("Qual a sua idade?");
 console.log(validaIdade(idade_entry));
+*/
+
+//function log(value) {
+//    console.log(value);
+//}
+
+
+var log1 = function(value) {
+    console.log(value);
+};
+
+var sum = function(a, b) {
+    console.log(a + b);
+
+    return a + b;
+};
+
+//Arrow functions
+var sum1 = (a, b) => {
+    var x = 10;
+
+    if (a > b) {}
+    return a + b + x;
+}
+
+var obj = {
+    showContext: function showContext() {
+        console.log(this);
+    },
+    log: function log(value) {
+        console.log(value);
+    }
+};
+
+console.log(obj.showContext());
+
+log1("teste");
+sum(5, 5);
+console.log(sum1(5, 15))
+
+//Default argument functions
+function multiply(a, b) {
+    //b = b || 1;
+    b = typeof b == "undefined" ? 1 : b;
+
+    return a * b;
+}
+
+//Lazy Evaluation
+function randomNumber() {
+    console.log("Generating a random number")
+    return Math.random() * 10;
+}
+
+function multiply1(a, b = randomNumber()) {
+    //b = b || 1;
+    return a * b;
+}
+
+var mult = (a, b) => {
+    a = typeof a == "undefined" ? randomNumber() : a;
+    b = typeof a == "undefined" ? randomNumber() : b;
+    return a * b;
+}
+
+console.log(multiply1(5));
+console.log(multiply1(3));
+
+//Enhanced Object Literals
+function method1() {
+    console.log('method called');
+}
+
+var prop1 = 'Digital Innovation One';
+var obj = {
+    sum: function sum(a, b) {
+        return a + b;
+    }
+};
+console.log(obj.sum(1, 5));
+
+var propName = "test";
+var obj2 = {};
+
+obj2[propName + 'concat'] = 'prop value';
+console.log(obj2);
+
+//Rest e spread operators
+
+function sum3(a, b) {
+    var value = 0;
+
+    for (var i = 0; i < arguments.length; i++) {
+        value += arguments[i];
+    }
+
+    return value;
+}
+
+//Rest operator
+function sum4(...args) {
+    return args.reduce((acc, value) => acc + value, 0);
+}
+
+var sum5 = (...rest) => {
+    return rest.reduce((acc, value) => acc + value, 0);
+};
+
+const multiply4 = (...args) => args.reduce((acc, value) => acc * value, 1);
+
+console.log(sum4(5, 5, 5, 2, 3));
+console.log(sum5(5, 5, 5, 2, 3));
+console.log(multiply4(5, 5, 5, 2, 3));
+
+//Spread operator
+const str2 = 'Digital Innovation One';
+const arr = [1, 2, 3, 4];
+
+function logArgs() {
+    console.log(arguments);
+}
+
+function logArgs1(a, b, c) {
+    console.log(a, b, c);
+}
+
+const arr2 = [5, 6, 7].concat(arr);
+
+logArgs(...str2);
+logArgs(...arr);
+console.log(arr2);
